@@ -1,0 +1,10 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Linguist overrides
+# - Recognize TSConfig file variants as JSONC (e.g: tsconfig.base.json)
+# - Recognize oxfmt + oxlint config files as JSONC
+Dockerfile -linguist-detectable
+tsconfig.*.json linguist-language=JSON-with-Comments
+.oxfmtrc.json linguist-language=JSON-with-Comments
+.oxlintrc.json linguist-language=JSON-with-Comments

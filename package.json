@@ -1,0 +1,40 @@
+{
+	"name": "@author/monorepo",
+	"version": "0.0.0",
+	"private": true,
+	"workspaces": [
+		"packages/**"
+	],
+	"type": "module",
+	"scripts": {
+		"build": "pnpm run --r --if-present build",
+		"docs": "typedoc --logLevel Verbose",
+		"docs-watch": "typedoc --watch",
+		"clean": "rm -rf ./dist/ ./node_modules ./package-lock.json",
+		"test": "vitest --coverage",
+		"test-ci": "vitest run --coverage",
+		"test-ui": "vitest --ui --coverage",
+		"test-html": "vitest run --reporter=html --coverage.clean; vite preview --outDir ./dist/vitest/report",
+		"test-json": "vitest run --reporter=json --coverage.clean",
+		"fmt": "oxfmt",
+		"fmt-ci": "oxfmt --check",
+		"lint": "oxlint --type-aware --type-check",
+		"fix": "oxlint --fix",
+		"inspect": "node-modules-inspector"
+	},
+	"devDependencies": {
+		"@types/node": "catalog:typescript",
+		"@vitest/coverage-v8": "catalog:voidzero",
+		"@vitest/ui": "catalog:voidzero",
+		"node-modules-inspector": "catalog:typescript",
+		"oxfmt": "catalog:voidzero",
+		"oxlint": "catalog:voidzero",
+		"oxlint-tsgolint": "catalog:voidzero",
+		"publint": "catalog:voidzero",
+		"tsdown": "catalog:voidzero",
+		"typedoc": "catalog:typescript",
+		"typescript": "catalog:typescript",
+		"vite": "catalog:voidzero",
+		"vitest": "catalog:voidzero"
+	}
+}

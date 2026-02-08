@@ -1,0 +1,42 @@
+{
+	"name": "@author/package",
+	"version": "1.0.0",
+	"description": "_desc_",
+	"keywords": [
+		"typescript"
+	],
+	"bugs": "https://github.com/_username_/_repository_/issues",
+	"license": "MIT",
+	"author": {
+		"name": "_author_",
+		"url": "https://github.com/_username_"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/_username_/_repository_.git",
+		"directory": "packages/pkg1"
+	},
+	"files": [
+		"dist"
+	],
+	"type": "module",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.mts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.mts",
+			"import": "./dist/index.mjs"
+		}
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"scripts": {
+		"build": "tsdown",
+		"dev": "tsdown --watch",
+		"test": "vitest",
+		"fmt": "oxfmt --config=../../.oxfmtrc.jsonc",
+		"lint": "oxlint",
+		"fix": "oxlint --fix"
+	}
+}
