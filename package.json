@@ -8,7 +8,7 @@
 	"type": "module",
 	"scripts": {
 		"angular:start": "pnpm --filter angular:onboard start",
-		"react:start": "pnpm --filter react:onboard start",
+		"react:start": "pnpm --filter react-onboard dev",
 		"build": "pnpm run --r --if-present build",
 		"docs": "typedoc --logLevel Verbose",
 		"docs-watch": "typedoc --watch",
@@ -39,5 +39,10 @@
 		"typescript": "catalog:typescript",
 		"vite": "catalog:voidzero",
 		"vitest": "catalog:voidzero"
+	},
+	"pnpm": {
+		"overrides": {
+			"vite": "^8.0.0-beta.13"
+		}
 	}
 }

@@ -1,59 +1,95 @@
-# Onboard
+# Onboard Apps (Angular + React)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.3.
+This workspace contains two frontend apps under `apps/`:
 
-## Development server
+- `angular-onboard` (Angular 21)
+- `react-onboard` (React 19 + Vite + Tailwind v4)
 
-To start a local development server, run:
+## Prerequisites
 
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+From the monorepo root (`angular-template/`):
 
 ```bash
-ng generate component component-name
+pnpm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Run Apps
+
+From the monorepo root:
 
 ```bash
-ng generate --help
+# Angular app
+pnpm --filter angular-onboard start
+
+# React app
+pnpm --filter react-onboard dev
 ```
 
-## Building
-
-To build the project run:
+Or run inside each app directory:
 
 ```bash
-ng build
+cd apps/angular-onboard && pnpm start
+cd apps/react-onboard && pnpm dev
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Default local URLs:
 
-## Running unit tests
+- Angular: `http://localhost:4200/`
+- React (Vite): `http://localhost:5173/` (or next available port)
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Build
+
+From monorepo root:
 
 ```bash
-ng test
+pnpm --filter angular-onboard build
+pnpm --filter react-onboard build
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+Or build all workspace packages/apps:
 
 ```bash
-ng e2e
+pnpm run build
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Lint and Format
 
-## Additional Resources
+Both apps use `oxlint` and `oxfmt`.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+pnpm --filter angular-onboard lint
+pnpm --filter angular-onboard fmt-ci
+
+pnpm --filter react-onboard lint
+pnpm --filter react-onboard fmt-ci
+```
+
+Auto-fix:
+
+```bash
+pnpm --filter angular-onboard fix
+pnpm --filter react-onboard fix
+```
+
+## Tests
+
+Angular app tests:
+
+```bash
+pnpm --filter angular-onboard test
+```
+
+Workspace test suite:
+
+```bash
+pnpm run test
+```
+
+## Angular-specific notes
+
+- Angular app uses standalone architecture (no `NgModule` setup for app bootstrapping).
+- API client code can be regenerated with:
+
+```bash
+pnpm --filter angular-onboard openapi:generate
+```
